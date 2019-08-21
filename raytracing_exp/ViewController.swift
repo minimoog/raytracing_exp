@@ -15,18 +15,30 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         
-        let width = imageView.image?.cgImage?.width
-        let height = imageView.image?.cgImage?.height
+        let pixelImage = generateTestImage()
         
-        let lenght = 200
-        let redPixel = PixelData(a: 255, r: 192, g: 0, b: 0)
-        let pixelData = [PixelData](repeating: redPixel, count: lenght * lenght)
-        
-        let image = imageFromPixelData(pixels: pixelData, width: UInt(lenght), height: UInt(lenght))
+        let image = pixelImage.toUIImage()
         
         imageView.image = image
+    }
+    
+    fileprivate func generateTestImage() -> PixelImage {
+        let nx = 200
+        let ny = 100
         
-        print("Width \(String(describing: width)) and height \(String(describing: height))")
+        var pixelData: [PixelData] = [PixelData]()
+        
+        for j in (0 ..< ny).reversed() {
+            for i in 0 ..< nx {
+                let pixel: PixelData = PixelData(red: Float(i) / Float(nx),
+                                                 green: Float(j) / Float(ny),
+                                                 blue: 0.2)
+                
+                pixelData.append(pixel)
+            }
+        }
+        
+        return PixelImage(pixelData: pixelData, width: UInt(nx), height: UInt(ny))
     }
 }
 
