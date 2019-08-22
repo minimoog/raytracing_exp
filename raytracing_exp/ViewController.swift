@@ -10,11 +10,25 @@ import UIKit
 import Foundation
 import simd
 
+func hitSphere(center: float3, radius: Float, ray: Ray) -> Bool {
+    let oc = ray.origin - center
+    let a = dot(ray.direction, ray.direction)
+    let b = 2.0 * dot(oc, ray.direction)
+    let c = dot(oc, oc) - radius * radius
+    let discriminant = b * b - 4 * a * c
+    
+    return discriminant > 0.0
+}
+
 func GetColor(ray: Ray) -> float3 {
+    if hitSphere(center: float3(0.0, 0.0, -1.0), radius: 0.5, ray: ray) {
+        return float3(1.0, 0.0, 0.0)
+    }
+    
     let unitDirection = normalize(ray.direction)
     let t: Float = 0.5 * unitDirection.y + 1.0
     
-    return ((1.0 - t) * float3(x: 1.0, y: 1.0, z: 1.0)) + (1.0 * float3(x: 0.5, y: 0.7, z: 1.0))
+    return ((1.0 - t) * float3(1.0, 1.0, 1.0)) + (1.0 * float3(0.5, 0.7, 1.0))
 }
 
 class ViewController: UIViewController {
@@ -27,10 +41,10 @@ class ViewController: UIViewController {
         let nx = 200
         let ny = 100
         
-        let lowerLeftCorner = float3(x: -2.0, y: -1.0, z: -1.0)
-        let horizontal = float3(x: 4.0, y: 0.0, z: 0.0)
-        let vertical = float3(x: 0.0, y: 2.0, z: 0.0)
-        let origin = float3(x: 0.0, y: 0.0, z: 0.0)
+        let lowerLeftCorner = float3(-2.0, -1.0, -1.0)
+        let horizontal = float3(4.0, 0.0, 0.0)
+        let vertical = float3(0.0, 2.0, 0.0)
+        let origin = float3(0.0, 0.0, 0.0)
         
         var pixelData: [PixelData] = [PixelData]()
         
