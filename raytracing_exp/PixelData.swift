@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import simd
 
 public struct PixelData {
     var a: UInt8 = 255
@@ -18,6 +19,14 @@ public struct PixelData {
         r = UInt8(255.99 * red)
         g = UInt8(255.99 * green)
         b = UInt8(255.99 * blue)
+    }
+    
+    init(fromVec3: float3) {
+        let clamped = clamp(fromVec3, min: 0.0, max: 1.0)
+        
+        r = UInt8(255.99 * clamped.x)
+        g = UInt8(255.99 * clamped.y)
+        b = UInt8(255.99 * clamped.z)
     }
 }
 
