@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		CD028040230DFFE000860E58 /* Ray.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD02803F230DFFE000860E58 /* Ray.swift */; };
+		CD743DEE2331924400A20B23 /* Hitable.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD743DED2331924400A20B23 /* Hitable.swift */; };
+		CD743DF02331931900A20B23 /* Sphere.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD743DEF2331931900A20B23 /* Sphere.swift */; };
+		CD743DF22331962E00A20B23 /* Hitlist.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD743DF12331962E00A20B23 /* Hitlist.swift */; };
 		CDF5C9FA230CA0C2008952E8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDF5C9F9230CA0C2008952E8 /* AppDelegate.swift */; };
 		CDF5C9FC230CA0C2008952E8 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDF5C9FB230CA0C2008952E8 /* ViewController.swift */; };
 		CDF5C9FF230CA0C2008952E8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CDF5C9FD230CA0C2008952E8 /* Main.storyboard */; };
@@ -37,6 +40,9 @@
 
 /* Begin PBXFileReference section */
 		CD02803F230DFFE000860E58 /* Ray.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ray.swift; sourceTree = "<group>"; };
+		CD743DED2331924400A20B23 /* Hitable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Hitable.swift; sourceTree = "<group>"; };
+		CD743DEF2331931900A20B23 /* Sphere.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sphere.swift; sourceTree = "<group>"; };
+		CD743DF12331962E00A20B23 /* Hitlist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Hitlist.swift; sourceTree = "<group>"; };
 		CDF5C9F6230CA0C2008952E8 /* raytracing_exp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = raytracing_exp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CDF5C9F9230CA0C2008952E8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CDF5C9FB230CA0C2008952E8 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -109,6 +115,9 @@
 				CDF5CA05230CA0C4008952E8 /* Info.plist */,
 				CDF5CA27230CA39B008952E8 /* PixelData.swift */,
 				CD02803F230DFFE000860E58 /* Ray.swift */,
+				CD743DED2331924400A20B23 /* Hitable.swift */,
+				CD743DEF2331931900A20B23 /* Sphere.swift */,
+				CD743DF12331962E00A20B23 /* Hitlist.swift */,
 			);
 			path = raytracing_exp;
 			sourceTree = "<group>";
@@ -262,7 +271,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CD743DF22331962E00A20B23 /* Hitlist.swift in Sources */,
+				CD743DEE2331924400A20B23 /* Hitable.swift in Sources */,
 				CD028040230DFFE000860E58 /* Ray.swift in Sources */,
+				CD743DF02331931900A20B23 /* Sphere.swift in Sources */,
 				CDF5CA28230CA39B008952E8 /* PixelData.swift in Sources */,
 				CDF5C9FC230CA0C2008952E8 /* ViewController.swift in Sources */,
 				CDF5C9FA230CA0C2008952E8 /* AppDelegate.swift in Sources */,

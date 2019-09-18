@@ -10,27 +10,6 @@ import UIKit
 import Foundation
 import simd
 
-func hitSphere(center: float3, radius: Float, ray: Ray) -> Bool {
-    let oc = ray.origin - center
-    let a = dot(ray.direction, ray.direction)
-    let b = 2.0 * dot(oc, ray.direction)
-    let c = dot(oc, oc) - radius * radius
-    let discriminant = b * b - 4 * a * c
-    
-    return discriminant > 0.0
-}
-
-func GetColor(ray: Ray) -> float3 {
-    if hitSphere(center: float3(0.0, 0.0, -1.0), radius: 0.5, ray: ray) {
-        return float3(1.0, 0.0, 0.0)
-    }
-    
-    let unitDirection = normalize(ray.direction)
-    let t: Float = 0.5 * unitDirection.y + 1.0
-    
-    return ((1.0 - t) * float3(1.0, 1.0, 1.0)) + (1.0 * float3(0.5, 0.7, 1.0))
-}
-
 class ViewController: UIViewController {
     @IBOutlet weak var imageView: UIImageView!
     
@@ -46,6 +25,9 @@ class ViewController: UIViewController {
         let vertical = float3(0.0, 2.0, 0.0)
         let origin = float3(0.0, 0.0, 0.0)
         
+        let world = [Sphere(center: float3(0.0, 0.0, -1.0), radius: 0.5),
+                                  Sphere(center: float3(0.0, -100.5, -1.0), radius: 100)]
+        
         var pixelData: [PixelData] = [PixelData]()
         
         for j in (0 ..< ny).reversed() {
@@ -54,7 +36,7 @@ class ViewController: UIViewController {
                 let v = Float(j) / Float(ny)
                 
                 let ray: Ray = Ray(origin: origin, direction: lowerLeftCorner + u * horizontal + v * vertical)
-                let color = GetColor(ray: ray)
+                let color = world.getColor(ray: ray)
                 
                 pixelData.append(PixelData(fromVec3: color))
             }
