@@ -19,24 +19,30 @@ class ViewController: UIViewController {
         
         let nx = 200
         let ny = 100
-        
-        let lowerLeftCorner = float3(-2.0, -1.0, -1.0)
-        let horizontal = float3(4.0, 0.0, 0.0)
-        let vertical = float3(0.0, 2.0, 0.0)
-        let origin = float3(0.0, 0.0, 0.0)
+        let ns = 100
         
         let world = [Sphere(center: float3(0.0, 0.0, -1.0), radius: 0.5),
-                                  Sphere(center: float3(0.0, -100.5, -1.0), radius: 100)]
+                     Sphere(center: float3(0.0, -100.5, -1.0), radius: 100)]
+        
+        let camera: Camera = Camera()
         
         var pixelData: [PixelData] = [PixelData]()
         
         for j in (0 ..< ny).reversed() {
             for i in 0 ..< nx {
-                let u = Float(i) / Float(nx)
-                let v = Float(j) / Float(ny)
+                var color = float3(0.0, 0.0, 0.0)
                 
-                let ray: Ray = Ray(origin: origin, direction: lowerLeftCorner + u * horizontal + v * vertical)
-                let color = world.getColor(ray: ray)
+                for _ in 0 ..< ns {
+                    let u = (Float(i) + Float.random(in: 0 ..< 1)) / Float(nx)
+                    let v = (Float(j) + Float.random(in: 0 ..< 1)) / Float(ny)
+                    
+                    let ray = camera.getRay(u: u, v: v)
+                    //let p = ray.pointAtParameter(t: 2.0) //why?
+                    
+                    color += world.getColor(ray: ray)
+                }
+                
+                color /= Float(ns)
                 
                 pixelData.append(PixelData(fromVec3: color))
             }

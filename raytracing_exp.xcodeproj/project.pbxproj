@@ -19,6 +19,7 @@
 		CDF5CA0F230CA0C4008952E8 /* raytracing_expTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDF5CA0E230CA0C4008952E8 /* raytracing_expTests.swift */; };
 		CDF5CA1A230CA0C4008952E8 /* raytracing_expUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDF5CA19230CA0C4008952E8 /* raytracing_expUITests.swift */; };
 		CDF5CA28230CA39B008952E8 /* PixelData.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDF5CA27230CA39B008952E8 /* PixelData.swift */; };
+		CDFFEAE92332BCB2009FF661 /* Camera.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDFFEAE82332BCB2009FF661 /* Camera.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +58,7 @@
 		CDF5CA19230CA0C4008952E8 /* raytracing_expUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = raytracing_expUITests.swift; sourceTree = "<group>"; };
 		CDF5CA1B230CA0C4008952E8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CDF5CA27230CA39B008952E8 /* PixelData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PixelData.swift; sourceTree = "<group>"; };
+		CDFFEAE82332BCB2009FF661 /* Camera.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Camera.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -118,6 +120,7 @@
 				CD743DED2331924400A20B23 /* Hitable.swift */,
 				CD743DEF2331931900A20B23 /* Sphere.swift */,
 				CD743DF12331962E00A20B23 /* Hitlist.swift */,
+				CDFFEAE82332BCB2009FF661 /* Camera.swift */,
 			);
 			path = raytracing_exp;
 			sourceTree = "<group>";
@@ -271,6 +274,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CDFFEAE92332BCB2009FF661 /* Camera.swift in Sources */,
 				CD743DF22331962E00A20B23 /* Hitlist.swift in Sources */,
 				CD743DEE2331924400A20B23 /* Hitable.swift in Sources */,
 				CD028040230DFFE000860E58 /* Ray.swift in Sources */,
